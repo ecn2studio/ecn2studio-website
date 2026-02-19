@@ -232,6 +232,63 @@ const projects: Project[] = [
     year: "2024",
     image: "/images/壞男孩海報.jpg",
   },
+  // ─── 2023 ───
+  {
+    id: 28,
+    titleKey: "project28.title",
+    categoryKey: "project28.category",
+    servicesKey: "project28.services",
+    year: "2023",
+    image: "/images/周處除三害海報.jpg",
+  },
+  {
+    id: 29,
+    titleKey: "project29.title",
+    categoryKey: "project29.category",
+    servicesKey: "project29.services",
+    year: "2023",
+    image: "/images/黑的教育海報.jpg",
+  },
+  {
+    id: 30,
+    titleKey: "project30.title",
+    categoryKey: "project30.category",
+    servicesKey: "project30.services",
+    year: "2023",
+    image: "/images/疫起海報.jpg",
+  },
+  {
+    id: 31,
+    titleKey: "project31.title",
+    categoryKey: "project31.category",
+    servicesKey: "project31.services",
+    year: "2023",
+    image: "/images/請問還有哪裡需要加強海報.jpg",
+  },
+  {
+    id: 32,
+    titleKey: "project32.title",
+    categoryKey: "project32.category",
+    servicesKey: "project32.services",
+    year: "2023",
+    image: "/images/我的麻吉4個鬼海報.jpg",
+  },
+  {
+    id: 33,
+    titleKey: "project33.title",
+    categoryKey: "project33.category",
+    servicesKey: "project33.services",
+    year: "2023",
+    image: "/images/查無此心海報.jpg",
+  },
+  {
+    id: 34,
+    titleKey: "project34.title",
+    categoryKey: "project34.category",
+    servicesKey: "project34.services",
+    year: "2023",
+    image: "/images/關於我和鬼變成家人的那件事海報.jpg",
+  },
 ];
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
