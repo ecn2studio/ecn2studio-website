@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface Project {
@@ -384,12 +385,12 @@ export default function Latest({
               </h2>
               <div className="w-20 h-1 bg-accent mt-4" />
             </div>
-            <a
+            <Link
               href="/latest"
               className="btn-primary mt-8 md:mt-0 self-start md:self-auto"
             >
               {t("latest.viewAll")}
-            </a>
+            </Link>
           </div>
         )}
 

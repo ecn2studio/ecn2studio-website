@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface Slide {
@@ -129,9 +130,9 @@ export default function HeroCarousel() {
             {t(slides[current].titleKey)}
           </h1>
           <div className="flex gap-4 mt-8">
-            <a href="/latest" className="btn-primary">
+            <Link href="/latest" className="btn-primary">
               {t("hero.learnMore")}
-            </a>
+            </Link>
             <a href="mailto:ecn2studio@gmail.com" className="btn-outline">
               {t("hero.contactUs")}
             </a>

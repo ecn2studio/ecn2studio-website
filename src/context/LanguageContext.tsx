@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 type Lang = "zh" | "en";
 
@@ -367,7 +367,21 @@ const translations: Record<Lang, Record<string, string>> = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>("zh");
+  const [lang, setLangState] = useState<Lang>("zh");
+
+  // 從 localStorage 讀取語言設定
+  useEffect(() => {
+    const saved = localStorage.getItem("lang") as Lang | null;
+    if (saved === "en" || saved === "zh") {
+      setLangState(saved);
+    }
+  }, []);
+
+  // 切換語言時同時存入 localStorage
+  const setLang = (newLang: Lang) => {
+    setLangState(newLang);
+    localStorage.setItem("lang", newLang);
+  };
 
   const t = (key: string): string => {
     return translations[lang][key] || key;
