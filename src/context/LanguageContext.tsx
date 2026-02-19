@@ -1,0 +1,390 @@
+"use client";
+
+import { createContext, useContext, useState, ReactNode } from "react";
+
+type Lang = "zh" | "en";
+
+interface LanguageContextType {
+  lang: Lang;
+  setLang: (lang: Lang) => void;
+  t: (key: string) => string;
+}
+
+// 翻譯字典
+const translations: Record<Lang, Record<string, string>> = {
+  zh: {
+    // Header Nav
+    "nav.home": "首頁",
+    "nav.services": "服務項目",
+    "nav.portfolio": "參與作品集",
+    "nav.about": "關於我們",
+    "nav.contact": "聯絡我們",
+
+    // Hero Carousel
+    "hero.learnMore": "了解更多",
+    "hero.contactUs": "合作洽詢",
+
+    // Hero Slides
+    "slide1.title": "《百萬人推理》",
+    "slide1.subtitle": "Netflix 原創影集",
+    "slide1.category": "現場檔案管理 / Netflix IMF 封包製作",
+    "slide2.title": "《雙囍》",
+    "slide2.subtitle": "院線電影",
+    "slide2.category": "現場檔案管理 / 後期影像全流程 / DCP 製作",
+    "slide3.title": "《功夫》",
+    "slide3.subtitle": "院線電影",
+    "slide3.category": "現場檔案管理 / 後期影像全流程 / DCP 製作",
+    "slide4.title": "《陽光女子合唱團》",
+    "slide4.subtitle": "院線電影",
+    "slide4.category": "現場檔案管理 / 後期影像全流程規劃",
+    "slide5.title": "《大濛》",
+    "slide5.subtitle": "院線電影",
+    "slide5.category": "現場檔案管理 / 影音同步 / ONLINE EDITING",
+
+    // Latest Section
+    "latest.sectionLabel": "Recent Work",
+    "latest.sectionTitle": "最新消息",
+    "latest.viewAll": "查看全部作品",
+
+    // Projects
+    "project1.title": "《百萬人推理》",
+    "project1.category": "Netflix 原創影集",
+    "project1.services": "現場檔案管理 / Netflix IMF 封包製作",
+    "project2.title": "《雙囍》",
+    "project2.category": "院線電影",
+    "project2.services": "現場檔案管理 / 後期影像全流程 / DCP 封包製作",
+    "project3.title": "《功夫》",
+    "project3.category": "院線電影",
+    "project3.services": "後期檔案管理 / 後期影像全流程 / DCP 封包製作",
+    "project4.title": "《陽光女子合唱團》",
+    "project4.category": "院線電影",
+    "project4.services": "現場檔案管理 / 後期影像全流程規劃",
+    "project5.title": "《大濛》",
+    "project5.category": "院線電影",
+    "project5.services": "現場檔案管理 / 影音同步 / Online Editing",
+    "project6.title": "《蟲》",
+    "project6.category": "院線電影",
+    "project6.services": "現場檔案管理 / 後期影像全流程 / DCP 封包製作",
+    "project7.title": "《女孩》",
+    "project7.category": "院線電影",
+    "project7.services": "現場檔案管理 / 後期影像全流程 / DCP 封包製作",
+    "project8.title": "《我們意外的勇氣》",
+    "project8.category": "院線電影",
+    "project8.services": "現場檔案管理 / 影音同步工程",
+    "project9.title": "《泥娃娃》",
+    "project9.category": "院線電影",
+    "project9.services": "現場檔案管理 / 後期影像全流程 / DCP 封包製作",
+    "project10.title": "《我家的事》",
+    "project10.category": "院線電影",
+    "project10.services": "現場檔案管理 / 影音同步工程",
+    "project11.title": "《有病才會喜歡你》",
+    "project11.category": "院線電影",
+    "project11.services": "現場檔案管理 / 影音同步工程 / 後期套片工程",
+    "project12.title": "《監所男子囚生記》",
+    "project12.category": "愛奇藝 iQIYI 影集",
+    "project12.services": "現場檔案管理 / 後期影像全流程 / iQIYI IMF 封包製作",
+    "project13.title": "《我與惡的距離2》",
+    "project13.category": "公共電視 PTS 影集",
+    "project13.services": "現場檔案管理 / 影音同步工程",
+    "project14.title": "《忘了我記得》",
+    "project14.category": "Netflix 原創影集",
+    "project14.services": "現場檔案管理 / HDR 後期影像全流程 / Netflix HDR IMF 封包製作",
+    "project15.title": "《凶宅專賣店》",
+    "project15.category": "Disney+",
+    "project15.services": "現場檔案管理 / 後期影像全流程",
+    "project16.title": "《壞男孩》",
+    "project16.category": "電影",
+    "project16.services": "後期檔案管理 / 影音同步工程",
+    "project17.title": "《還錢》",
+    "project17.category": "電影",
+    "project17.services": "現場檔案管理 / 影音同步工程 / Online Editing",
+    "project18.title": "《何百芮的地獄毒白》",
+    "project18.category": "HBO GO",
+    "project18.services": "後期檔案管理 / 後期影像全流程",
+    "project19.title": "《青春18×2 通往有你的旅程》",
+    "project19.category": "電影",
+    "project19.services": "現場檔案管理 / 後期影像全流程",
+    "project20.title": "《莎莉》",
+    "project20.category": "電影",
+    "project20.services": "現場檔案管理 / 影音同步工程",
+    "project21.title": "《不夠善良的我們》",
+    "project21.category": "公共電視 PTS 影集",
+    "project21.services": "後期檔案管理 / 影音同步工程",
+    "project22.title": "《鬼才之道》",
+    "project22.category": "電影",
+    "project22.services": "現場檔案管理 / 後期影像全流程",
+    "project23.title": "《正港分局》",
+    "project23.category": "Netflix 原創影集",
+    "project23.services": "後期檔案管理 / 後期影像全流程",
+    "project24.title": "《今天一起為愛鼓掌》",
+    "project24.category": "八大戲劇台 GTV",
+    "project24.services": "後期檔案管理 / 後期影像全流程",
+    "project25.title": "《小雁與吳愛麗》",
+    "project25.category": "電影",
+    "project25.services": "現場檔案管理 / 後期影像全流程 / DCP 封包製作",
+    "project26.title": "《為我辦一場西式喪禮》",
+    "project26.category": "電影",
+    "project26.services": "現場檔案管理 / 後期影像全流程",
+    "project27.title": "《影后》",
+    "project27.category": "Netflix 原創影集",
+    "project27.services": "後期檔案管理 / 後期影像全流程",
+
+    // Services
+    "service1.title": "現場檔案管理",
+    "service1.titleEn": "On-Set Data Management",
+    "service1.desc": "專業檔案管理團隊駐場服務，即時備份、素材畫面監看、檔案歸檔，確保每一格影像安全無虞。",
+    "service2.title": "後期檔案管理",
+    "service2.titleEn": "Post-Production Data Management",
+    "service2.desc": "從拍攝素材到最終交付，完整的檔案流程管理與專業的影音技術整合、各種版本控管與跨部門協作無縫銜接。",
+    "service3.title": "影音同步",
+    "service3.titleEn": "Audio-Video Synchronization",
+    "service3.desc": "高精度影音同步處理，針對不同剪輯軟體有不同的工作流程，加速後期製作流程，從現場收音到混音的完美對接。",
+    "service4.title": "套片與特效出檔作業",
+    "service4.titleEn": "Online Editing / Conforming",
+    "service4.desc": "精確的套片作業，確保剪輯版本與原始攝影素材完美對應，呈現最高畫質成品，並與合作的特效團隊對接，確實把關每一個階段的色彩管理。",
+    "service5.title": "DCP 製作",
+    "service5.titleEn": "DCP Mastering",
+    "service5.desc": "符合 DCI 規格的數位電影包製作，支援 2K/4K 規格，讓作品在大銀幕完美呈現。",
+    "service6.title": "Netflix 規格製作",
+    "service6.titleEn": "Netflix Specification Delivery",
+    "service6.desc": "完全符合 Netflix 技術規格的母帶製作與交付，包含 IMF 封裝、HDR 調光、音頻規格認證，讓作品在 Netflix 平台完美呈現。",
+    "service7.title": "SDR 與 HDR 調色製作",
+    "service7.titleEn": "SDR & HDR Color Grading",
+    "service7.desc": "專業的 SDR / HDR 雙版本調色製作，精準色彩管理與 ACES 工作流程，確保從 Rec.709 到 Rec.2020 / PQ / HLG 各種規格的完美呈現，滿足院線、串流平台與電視播出的不同需求。",
+
+    // Services Page
+    "servicesPage.label": "What We Do",
+    "servicesPage.title": "服務項目",
+    "servicesPage.desc": "從片場到銀幕，ECN2 STUDIO 提供全方位的專業影視後期技術服務。",
+
+    // Portfolio Page
+    "portfolioPage.label": "Portfolio",
+    "portfolioPage.title": "參與作品集",
+    "portfolioPage.desc": "探索我們參與過的影視製作專案。",
+
+    // About Page
+    "aboutPage.label": "About Us",
+    "aboutPage.title": "關於我們",
+    "aboutPage.desc": "認識 ECN2 STUDIO，一支專注於影視後期製作的專業團隊。",
+
+    // About Section
+    "about.p1": "ECN2 STUDIO 是一支在台灣專注於影視後期製作的專業團隊，從片場到銀幕，我們陪伴每一部作品走過最關鍵的旅程。",
+    "about.p2": "我們深信，卓越的技術是講好故事的基石。無論是 Netflix 原創影集的規格要求，還是院線電影的 DCP 母帶製作，我們都以最高標準為每一個專案把關。",
+    "about.p3": "從現場檔案管理到最終上映平台交付，ECN2 STUDIO 提供一站式的後期技術解決方案，讓創作者專注於創作，我們負責讓技術完美落地。",
+                "about.value1.title": "精準交付",
+                "about.value1.desc": "每一個檔案、每一格畫面，我們都以最嚴謹的標準把關，確保從片場到平台交付零失誤。",
+                "about.value2.title": "跨部門整合",
+                "about.value2.desc": "與拍攝現場製片端、攝影、調光、音效、特效等各部門緊密協作，確保每一個環節無縫銜接，高效推進專案進度。",
+                "about.value3.title": "全流程把關",
+                "about.value3.desc": "從現場檔案管理、後期製作到最終封裝交付，提供完整且無縫的技術支援。",
+                "about.value4.title": "技術創新",
+                "about.value4.desc": "持續導入最新的後期製作技術與工作流程，為每一部作品找到最佳的技術方案。",
+
+    // Footer
+    "footer.cta.label": "Get in Touch",
+    "footer.cta.title": "準備好將您的故事變為現實了嗎？",
+    "footer.cta.button": "聯絡我們",
+    "footer.slogan": "提供一站式的後期技術解決方案，讓創作者專注於創作，我們負責讓技術完美落地。",
+    "footer.contact": "Contact",
+  },
+  en: {
+    // Header Nav
+    "nav.home": "Home",
+    "nav.services": "Services",
+    "nav.portfolio": "Portfolio",
+    "nav.about": "About",
+    "nav.contact": "Contact",
+
+    // Hero Carousel
+    "hero.learnMore": "Learn More",
+    "hero.contactUs": "Contact Us",
+
+    // Hero Slides
+    "slide1.title": "Million-Follower Detective",
+    "slide1.subtitle": "Netflix Original Series",
+    "slide1.category": "On-Set Data Mgmt / Netflix IMF Packaging",
+    "slide2.title": "Double Happiness",
+    "slide2.subtitle": "Theatrical Film",
+    "slide2.category": "On-Set Data Mgmt / Full Post Pipeline / DCP",
+    "slide3.title": "Kung Fu",
+    "slide3.subtitle": "Theatrical Film",
+    "slide3.category": "On-Set Data Mgmt / Full Post Pipeline / DCP",
+    "slide4.title": "Sunshine Women's Choir",
+    "slide4.subtitle": "Theatrical Film",
+    "slide4.category": "On-Set Data Mgmt / Full Post Pipeline Planning",
+    "slide5.title": "A Foggy Tale",
+    "slide5.subtitle": "Theatrical Film",
+    "slide5.category": "On-Set Data Mgmt / A/V Sync / Online Editing",
+
+    // Latest Section
+    "latest.sectionLabel": "Recent Work",
+    "latest.sectionTitle": "Latest News",
+    "latest.viewAll": "View All",
+
+    // Projects
+    "project1.title": "Million-Follower Detective",
+    "project1.category": "Netflix Original Series",
+    "project1.services": "On-Set Data Mgmt / Netflix IMF Packaging",
+    "project2.title": "Double Happiness",
+    "project2.category": "Theatrical Film",
+    "project2.services": "On-Set Data Mgmt / Full Post Pipeline / DCP Mastering",
+    "project3.title": "Kung Fu",
+    "project3.category": "Theatrical Film",
+    "project3.services": "Post-Production Data Mgmt / Full Post Pipeline / DCP Mastering",
+    "project4.title": "Sunshine Women's Choir",
+    "project4.category": "Theatrical Film",
+    "project4.services": "On-Set Data Mgmt / Full Post Pipeline Planning",
+    "project5.title": "A Foggy Tale",
+    "project5.category": "Theatrical Film",
+    "project5.services": "On-Set Data Mgmt / A/V Sync / Online Editing",
+    "project6.title": "Locust",
+    "project6.category": "Theatrical Film",
+    "project6.services": "On-Set Data Mgmt / Full Post Pipeline / DCP Mastering",
+    "project7.title": "Girl",
+    "project7.category": "Theatrical Film",
+    "project7.services": "On-Set Data Mgmt / Full Post Pipeline / DCP Mastering",
+    "project8.title": "Unexpected Courage",
+    "project8.category": "Theatrical Film",
+    "project8.services": "On-Set Data Mgmt / A/V Sync",
+    "project9.title": "Mudborn",
+    "project9.category": "Theatrical Film",
+    "project9.services": "On-Set Data Mgmt / Full Post Pipeline / DCP Mastering",
+    "project10.title": "Family Matters",
+    "project10.category": "Theatrical Film",
+    "project10.services": "On-Set Data Mgmt / A/V Sync",
+    "project11.title": "Lovesick",
+    "project11.category": "Theatrical Film",
+    "project11.services": "On-Set Data Mgmt / A/V Sync / Online Conforming",
+    "project12.title": "OOPS! I'M IN JAIL",
+    "project12.category": "iQIYI Series",
+    "project12.services": "On-Set Data Mgmt / Full Post Pipeline / iQIYI IMF Packaging",
+    "project13.title": "The World Between Us: After the Flames",
+    "project13.category": "PTS (Taiwan Public Television) Series",
+    "project13.services": "On-Set Data Mgmt / A/V Sync",
+    "project14.title": "Forget You Not",
+    "project14.category": "Netflix Original Series",
+    "project14.services": "On-Set Data Mgmt / HDR Full Post Pipeline / Netflix HDR IMF Packaging",
+    "project15.title": "Haunted House Secrets",
+    "project15.category": "Disney+",
+    "project15.services": "On-Set Data Mgmt / Full Post Pipeline",
+    "project16.title": "The Young Hoodlum",
+    "project16.category": "Theatrical Film",
+    "project16.services": "Post-Production Data Mgmt / A/V Sync",
+    "project17.title": "Breaking and Re-entering",
+    "project17.category": "Theatrical Film",
+    "project17.services": "On-Set Data Mgmt / A/V Sync / Online Editing",
+    "project18.title": "The Accidental Influencer",
+    "project18.category": "HBO GO",
+    "project18.services": "Post-Production Data Mgmt / Full Post Pipeline",
+    "project19.title": "18×2 Beyond Youthful Days",
+    "project19.category": "Theatrical Film",
+    "project19.services": "On-Set Data Mgmt / Full Post Pipeline",
+    "project20.title": "Salli",
+    "project20.category": "Theatrical Film",
+    "project20.services": "On-Set Data Mgmt / A/V Sync",
+    "project21.title": "Imperfect Us",
+    "project21.category": "PTS (Taiwan Public Television) Series",
+    "project21.services": "Post-Production Data Mgmt / A/V Sync",
+    "project22.title": "Dead Talents Society",
+    "project22.category": "Theatrical Film",
+    "project22.services": "On-Set Data Mgmt / Full Post Pipeline",
+    "project23.title": "GG Precinct",
+    "project23.category": "Netflix Original Series",
+    "project23.services": "Post-Production Data Mgmt / Full Post Pipeline",
+    "project24.title": "Us Without Sex",
+    "project24.category": "GTV Drama Series",
+    "project24.services": "Post-Production Data Mgmt / Full Post Pipeline",
+    "project25.title": "Yen and Ai-Lee",
+    "project25.category": "Theatrical Film",
+    "project25.services": "On-Set Data Mgmt / Full Post Pipeline / DCP Mastering",
+    "project26.title": "See You",
+    "project26.category": "Theatrical Film",
+    "project26.services": "On-Set Data Mgmt / Full Post Pipeline",
+    "project27.title": "Born for the Spotlight",
+    "project27.category": "Netflix Original Series",
+    "project27.services": "Post-Production Data Mgmt / Full Post Pipeline",
+
+    // Services
+    "service1.title": "On-Set Data Management",
+    "service1.titleEn": "On-Set Data Management",
+    "service1.desc": "Professional DIT team on-set services, including real-time backup, color monitoring, and file archiving to ensure every frame is safe.",
+    "service2.title": "Post-Production Data Management",
+    "service2.titleEn": "Post-Production Data Management",
+    "service2.desc": "Complete file workflow management from raw footage to final delivery, with version control and seamless cross-department collaboration.",
+    "service3.title": "Audio-Video Synchronization",
+    "service3.titleEn": "Audio-Video Synchronization",
+    "service3.desc": "High-precision audio-video sync processing, supporting multi-camera and multi-track workflows, from on-set sound to final mix.",
+    "service4.title": "Online Editing / Conforming",
+    "service4.titleEn": "Online Editing / Conforming",
+    "service4.desc": "Precise conforming to ensure the edited version perfectly matches the original camera footage, delivering the highest quality output.",
+    "service5.title": "DCP Mastering",
+    "service5.titleEn": "DCP Mastering",
+    "service5.desc": "DCI-compliant Digital Cinema Package production, supporting 2K/4K and Dolby Atmos for perfect theatrical presentation.",
+    "service6.title": "Netflix Specification Delivery",
+    "service6.titleEn": "Netflix Specification Delivery",
+    "service6.desc": "Full compliance with Netflix technical specifications, including IMF packaging, HDR grading, and audio specification certification.",
+    "service7.title": "SDR & HDR Color Grading",
+    "service7.titleEn": "SDR & HDR Color Grading",
+    "service7.desc": "Professional dual-version SDR/HDR color grading with precise color management and ACES workflow, ensuring flawless delivery across Rec.709, Rec.2020, PQ, and HLG specifications for theatrical, streaming, and broadcast requirements.",
+
+    // Services Page
+    "servicesPage.label": "What We Do",
+    "servicesPage.title": "Services",
+    "servicesPage.desc": "From set to screen, ECN2 STUDIO provides comprehensive professional post-production services.",
+
+    // Portfolio Page
+    "portfolioPage.label": "Portfolio",
+    "portfolioPage.title": "Portfolio",
+    "portfolioPage.desc": "Explore our film and television production projects.",
+
+    // About Page
+    "aboutPage.label": "About Us",
+    "aboutPage.title": "About Us",
+    "aboutPage.desc": "Meet ECN2 STUDIO, a professional team dedicated to post-production excellence.",
+
+    // About Section
+    "about.p1": "ECN2 STUDIO is a professional team based in Taiwan, specializing in film and television post-production. From set to screen, we accompany every project through its most critical journey.",
+    "about.p2": "We believe that technical excellence is the foundation of great storytelling. Whether it's the strict specifications of a Netflix original series or DCP mastering for theatrical release, we hold every project to the highest standards.",
+    "about.p3": "From on-set data management to final platform delivery, ECN2 STUDIO provides one-stop post-production technical solutions, allowing creators to focus on their art while we ensure flawless technical execution.",
+                "about.value1.title": "Precise Delivery",
+                "about.value1.desc": "Every file, every frame — we uphold the strictest standards to ensure zero errors from set to platform delivery.",
+                "about.value2.title": "Cross-Department Integration",
+                "about.value2.desc": "Working closely with on-set production teams, cinematographers, colorists, sound designers, and VFX teams to ensure seamless coordination and efficient project progress.",
+                "about.value3.title": "Full Pipeline QC",
+                "about.value3.desc": "From on-set data management to post-production and final packaging, we provide seamless end-to-end technical support.",
+                "about.value4.title": "Technical Innovation",
+                "about.value4.desc": "Continuously adopting the latest post-production technologies and workflows to find the best technical solution for every project.",
+
+    // Footer
+    "footer.cta.label": "Get in Touch",
+    "footer.cta.title": "Ready to bring your story to life?",
+    "footer.cta.button": "Contact Us",
+    "footer.slogan": "One-stop post-production solutions — so creators can focus on creating, while we ensure flawless technical execution.",
+    "footer.contact": "Contact",
+  },
+};
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+export function LanguageProvider({ children }: { children: ReactNode }) {
+  const [lang, setLang] = useState<Lang>("zh");
+
+  const t = (key: string): string => {
+    return translations[lang][key] || key;
+  };
+
+  return (
+    <LanguageContext.Provider value={{ lang, setLang, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+}
+
+export function useLanguage() {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error("useLanguage must be used within a LanguageProvider");
+  }
+  return context;
+}
+

@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fonts are now imported via next/font/google in layout.tsx */
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-dark-900 text-white font-body;
+  }
+
+  ::selection {
+    @apply bg-accent text-dark-900;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-6 md:px-12 lg:px-20 xl:px-32;
+  }
+
+  .btn-primary {
+    @apply inline-block bg-accent text-dark-900 font-bold px-8 py-3
+           text-sm uppercase tracking-widest
+           hover:bg-accent-hover transition-all duration-300
+           border-none cursor-pointer;
+  }
+
+  .btn-outline {
+    @apply inline-block border-2 border-white text-white font-bold px-8 py-3
+           text-sm uppercase tracking-widest
+           hover:bg-white hover:text-dark-900 transition-all duration-300
+           cursor-pointer;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-dark-500 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accent;
+}
