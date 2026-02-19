@@ -23,6 +23,7 @@ const translations: Record<Lang, Record<string, string>> = {
     // Hero Carousel
     "hero.learnMore": "了解更多",
     "hero.contactUs": "合作洽詢",
+    "hero.production": "參與製作",
 
     // Hero Slides
     "slide1.title": "《百萬人推理》",
@@ -40,6 +41,9 @@ const translations: Record<Lang, Record<string, string>> = {
     "slide5.title": "《大濛》",
     "slide5.subtitle": "院線電影",
     "slide5.category": "現場檔案管理 / 影音同步 / ONLINE EDITING",
+    "slide6.title": "《凶宅專賣店》",
+    "slide6.subtitle": "Disney+",
+    "slide6.category": "現場檔案管理 / 後期影像全流程",
 
     // Latest Section
     "latest.sectionLabel": "Recent Work",
@@ -219,6 +223,7 @@ const translations: Record<Lang, Record<string, string>> = {
     // Hero Carousel
     "hero.learnMore": "Learn More",
     "hero.contactUs": "Contact Us",
+    "hero.production": "Production Services",
 
     // Hero Slides
     "slide1.title": "Million-Follower Detective",
@@ -236,6 +241,9 @@ const translations: Record<Lang, Record<string, string>> = {
     "slide5.title": "A Foggy Tale",
     "slide5.subtitle": "Theatrical Film",
     "slide5.category": "On-Set Data Mgmt / A/V Sync / Online Editing",
+    "slide6.title": "Haunted House Secrets",
+    "slide6.subtitle": "Disney+",
+    "slide6.category": "On-Set Data Mgmt / Full Post Pipeline",
 
     // Latest Section
     "latest.sectionLabel": "Recent Work",

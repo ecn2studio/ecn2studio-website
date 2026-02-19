@@ -43,6 +43,13 @@ const slides: Slide[] = [
     image: "/images/slide4.jpg",
   },
   {
+    id: 6,
+    titleKey: "slide6.title",
+    subtitleKey: "slide6.subtitle",
+    categoryKey: "slide6.category",
+    image: "/images/凶宅專賣店劇照.jpg",
+  },
+  {
     id: 5,
     titleKey: "slide5.title",
     subtitleKey: "slide5.subtitle",
@@ -116,6 +123,9 @@ export default function HeroCarousel() {
               : "opacity-0 translate-y-8"
           }`}
         >
+          <span className="text-white/60 text-xs md:text-sm font-bold uppercase tracking-[0.3em] mb-1 block">
+            {t("hero.production")}
+          </span>
           <span className="text-accent text-xs md:text-sm font-bold uppercase tracking-[0.3em] mb-4 block">
             {t(slides[current].categoryKey)}
           </span>
