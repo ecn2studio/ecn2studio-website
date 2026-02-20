@@ -46,8 +46,8 @@ const translations: Record<Lang, Record<string, string>> = {
     "slide6.category": "現場檔案管理 / 後期影像全流程",
 
     // Latest Section
-    "latest.sectionLabel": "Recent Work",
-    "latest.sectionTitle": "最新消息",
+"latest.sectionLabel": "Latest Release",
+                "latest.sectionTitle": "最新上映",
     "latest.viewAll": "查看全部作品",
 
     // Projects
@@ -153,6 +153,18 @@ const translations: Record<Lang, Record<string, string>> = {
     "project34.title": "《關於我和鬼變成家人的那件事》",
     "project34.category": "電影",
     "project34.services": "現場檔案管理 / 後期影像全流程",
+    "project35.title": "《此時此刻》",
+    "project35.category": "Netflix 原創影集",
+    "project35.services": "現場檔案管理",
+    "project36.title": "《美食無間》",
+    "project36.category": "iQIYI / 三立都會台 (SET City)",
+    "project36.services": "後期檔案管理 / 影音同步工程",
+    "project37.title": "《不良執念清除師》",
+    "project37.category": "iQIYI",
+    "project37.services": "後期檔案管理 / 影音同步工程",
+    "project38.title": "《模仿犯》",
+    "project38.category": "Netflix 原創影集",
+    "project38.services": "後期檔案管理 / 後期影像全流程 / Netflix IMF 封包製作",
 
     // Services
     "service1.title": "現場檔案管理",
@@ -246,8 +258,8 @@ const translations: Record<Lang, Record<string, string>> = {
     "slide6.category": "On-Set Data Mgmt / Full Post Pipeline",
 
     // Latest Section
-    "latest.sectionLabel": "Recent Work",
-    "latest.sectionTitle": "Latest News",
+    "latest.sectionLabel": "Latest Release",
+    "latest.sectionTitle": "Latest Release",
     "latest.viewAll": "View All",
 
     // Projects
@@ -353,6 +365,18 @@ const translations: Record<Lang, Record<string, string>> = {
     "project34.title": "Marry My Dead Body",
     "project34.category": "Theatrical Film",
     "project34.services": "On-Set Data Mgmt / Full Post Pipeline",
+    "project35.title": "At the Moment",
+    "project35.category": "Netflix Original Series",
+    "project35.services": "On-Set Data Management",
+    "project36.title": "Gourmet Affairs",
+    "project36.category": "iQIYI / SET City",
+    "project36.services": "Post-Production Data Mgmt / A/V Sync",
+    "project37.title": "Oh No! Here Comes Trouble",
+    "project37.category": "iQIYI",
+    "project37.services": "Post-Production Data Mgmt / A/V Sync",
+    "project38.title": "Copycat Killer",
+    "project38.category": "Netflix Original Series",
+    "project38.services": "Post-Production Data Mgmt / Full Post Pipeline / Netflix IMF Packaging",
 
     // Services
     "service1.title": "On-Set Data Management",
