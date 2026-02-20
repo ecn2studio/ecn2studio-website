@@ -72,20 +72,6 @@ const services: Service[] = [
   },
   {
     id: 5,
-    titleKey: "service5.title",
-    titleEnKey: "service5.titleEn",
-    descKey: "service5.desc",
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-        <circle cx="24" cy="24" r="16" stroke="currentColor" strokeWidth="2" />
-        <circle cx="24" cy="24" r="6" stroke="currentColor" strokeWidth="1.5" />
-        <circle cx="24" cy="24" r="2" fill="currentColor" />
-        <path d="M24 8v4M24 36v4M8 24h4M36 24h4" stroke="currentColor" strokeWidth="1.5" />
-      </svg>
-    ),
-  },
-  {
-    id: 6,
     titleKey: "service6.title",
     titleEnKey: "service6.titleEn",
     descKey: "service6.desc",
@@ -97,7 +83,7 @@ const services: Service[] = [
     ),
   },
   {
-    id: 7,
+    id: 6,
     titleKey: "service7.title",
     titleEnKey: "service7.titleEn",
     descKey: "service7.desc",
@@ -108,6 +94,20 @@ const services: Service[] = [
         <path d="M24 17.4a10 10 0 0 1 0 13.2" stroke="currentColor" strokeWidth="1.5" />
         <path d="M10 34l4 6M38 34l-4 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         <path d="M14 20h4M30 20h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    id: 7,
+    titleKey: "service5.title",
+    titleEnKey: "service5.titleEn",
+    descKey: "service5.desc",
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <circle cx="24" cy="24" r="16" stroke="currentColor" strokeWidth="2" />
+        <circle cx="24" cy="24" r="6" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="24" cy="24" r="2" fill="currentColor" />
+        <path d="M24 8v4M24 36v4M8 24h4M36 24h4" stroke="currentColor" strokeWidth="1.5" />
       </svg>
     ),
   },
