@@ -35,7 +35,10 @@ export default function Footer() {
               ECN<span className="text-accent">2</span> STUDIO
             </span>
           </Link>
-          <p className="text-gray-400 text-sm leading-relaxed mt-4">
+          <p className="text-gray-500 text-xs tracking-wide mt-1">
+            {t("footer.brandName")}
+          </p>
+          <p className="text-gray-400 text-sm leading-relaxed mt-3">
             {t("footer.slogan")}
           </p>
         </div>
