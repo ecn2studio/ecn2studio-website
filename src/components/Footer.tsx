@@ -9,12 +9,12 @@ export default function Footer() {
   return (
     <footer className="bg-dark-900 text-white">
       {/* Contact CTA */}
-      <section className="bg-dark-800 py-20 md:py-28">
+      <section className="bg-dark-800 py-16 sm:py-20 md:py-28">
         <div className="section-padding text-center">
-          <span className="text-accent text-xs font-bold uppercase tracking-[0.3em] mb-4 block">
+          <span className="text-accent text-xs font-bold uppercase tracking-[0.3em] mb-3 sm:mb-4 block">
             {t("footer.cta.label")}
           </span>
-          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-8 max-w-4xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight mb-6 sm:mb-8 max-w-4xl mx-auto">
             {t("footer.cta.title")}
           </h2>
           <Link href="mailto:ecn2studio@gmail.com" className="btn-primary">
@@ -24,7 +24,7 @@ export default function Footer() {
       </section>
 
       {/* Main Footer */}
-      <div className="section-padding py-12 md:py-16 flex flex-col md:flex-row items-start justify-between gap-10">
+      <div className="section-padding py-8 sm:py-12 md:py-16 flex flex-col md:flex-row items-start justify-between gap-8 sm:gap-10">
         {/* Left - Logo + Slogan */}
         <div className="max-w-md">
           <Link href="/" className="flex items-center gap-3 group">

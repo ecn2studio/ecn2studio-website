@@ -42,7 +42,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
           <span
-            className="font-logo text-3xl md:text-4xl lg:text-5xl font-[900] tracking-wide text-white group-hover:text-accent transition-colors duration-300 uppercase"
+            className="font-logo text-xl sm:text-2xl md:text-4xl lg:text-5xl font-[900] tracking-wide text-white group-hover:text-accent transition-colors duration-300 uppercase"
             style={{ WebkitTextStroke: '0.5px currentColor' }}
           >
             ECN<span className="text-accent">2</span> STUDIO

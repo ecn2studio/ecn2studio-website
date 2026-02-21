@@ -352,14 +352,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       style={{ transitionDelay: `${index * 100}ms` }}
     >
       {/* 文字區域 - 在圖片上方 */}
-      <div className="mb-3">
-        <span className="text-accent text-xs font-bold uppercase tracking-widest">
+      <div className="mb-2 sm:mb-3">
+        <span className="text-accent text-[10px] sm:text-xs font-bold uppercase tracking-widest">
           {t(project.categoryKey)}
         </span>
-        <h3 className="text-xl md:text-2xl font-bold mt-1">
+        <h3 className="text-sm sm:text-xl md:text-2xl font-bold mt-0.5 sm:mt-1 leading-tight">
           {t(project.titleKey)}
         </h3>
-        <span className="text-gray-400 text-sm">{project.year}</span>
+        <span className="text-gray-400 text-xs sm:text-sm">{project.year}</span>
       </div>
 
       {/* 圖片區域 */}
@@ -409,12 +409,12 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             e.stopPropagation();
             setShowServices(!showServices);
           }}
-          className={`absolute top-4 right-4 w-10 h-10 rounded-full bg-accent text-dark-900 
+          className={`absolute top-3 right-3 sm:top-4 sm:right-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-accent text-dark-900 
                       flex items-center justify-center z-10
                       transition-all duration-500
                       ${showServices
                         ? "opacity-100 rotate-45"
-                        : "opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0"
+                        : "opacity-100 md:opacity-0 md:group-hover:opacity-100 md:translate-y-4 md:group-hover:translate-y-0"
                       }`}
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -460,23 +460,23 @@ export default function Latest({
   const displayProjects = limit ? projects.slice(0, limit) : null;
 
   return (
-    <section id="latest" className="py-24 md:py-32 bg-dark-900">
+    <section id="latest" className="py-16 sm:py-24 md:py-32 bg-dark-900">
       <div className="section-padding">
         {/* Section Header */}
         {showHeader && (
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 md:mb-20">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-10 sm:mb-16 md:mb-20">
             <div>
-              <span className="text-accent text-xs font-bold uppercase tracking-[0.3em] mb-4 block">
+              <span className="text-accent text-xs font-bold uppercase tracking-[0.3em] mb-3 sm:mb-4 block">
                 {t("latest.sectionLabel")}
               </span>
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tight">
                 {t("latest.sectionTitle")}
               </h2>
-              <div className="w-20 h-1 bg-accent mt-4" />
+              <div className="w-16 sm:w-20 h-1 bg-accent mt-3 sm:mt-4" />
             </div>
             <Link
               href="/latest"
-              className="btn-primary mt-8 md:mt-0 self-start md:self-auto"
+              className="btn-primary mt-6 sm:mt-8 md:mt-0 self-start md:self-auto"
             >
               {t("latest.viewAll")}
             </Link>
@@ -485,7 +485,7 @@ export default function Latest({
 
         {limit && displayProjects ? (
           /* 首頁模式：只顯示最新 N 筆，不分年份 */
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-6">
             {displayProjects.map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
             ))}
@@ -496,17 +496,17 @@ export default function Latest({
             const yearProjects = getProjectsByYear(year);
             if (yearProjects.length === 0) return null;
             return (
-              <div key={year} className="mb-16 last:mb-0">
+              <div key={year} className="mb-10 sm:mb-16 last:mb-0">
                 {/* 年份標題 */}
-                <div className="flex items-center gap-4 mb-8">
-                  <h3 className="text-3xl md:text-4xl font-black text-accent">
+                <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-accent">
                     {year}
                   </h3>
                   <div className="flex-1 h-px bg-white/10" />
                 </div>
 
                 {/* 該年份的作品 Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-6">
                   {yearProjects.map((project, index) => (
                     <ProjectCard key={project.id} project={project} index={index} />
                   ))}

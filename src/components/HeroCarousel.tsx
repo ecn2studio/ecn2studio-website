@@ -115,7 +115,7 @@ export default function HeroCarousel() {
       ))}
 
       {/* Content */}
-      <div className="relative h-full flex items-end pb-32 md:pb-40 section-padding">
+      <div className="relative h-full flex items-end pb-24 sm:pb-32 md:pb-40 section-padding">
         <div
           className={`max-w-4xl ${
             textVisible
@@ -123,27 +123,31 @@ export default function HeroCarousel() {
               : "opacity-0 translate-y-8"
           }`}
         >
-          <span className="text-white/60 text-xs md:text-sm font-bold uppercase tracking-[0.3em] mb-1 block">
+          <span className="text-white/60 text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.3em] mb-1 block">
             {t("hero.production")}
           </span>
-          <span className="text-accent text-xs md:text-sm font-bold uppercase tracking-[0.3em] mb-4 block">
+          <span className="text-accent text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.3em] mb-3 sm:mb-4 block">
             {t(slides[current].categoryKey)}
           </span>
           <h1 className={`font-black leading-[0.95] tracking-tight mb-2 ${
-            lang === "en" ? "text-4xl md:text-5xl lg:text-6xl" : "text-5xl md:text-7xl lg:text-8xl"
+            lang === "en"
+              ? "text-2xl sm:text-3xl md:text-5xl lg:text-6xl"
+              : "text-3xl sm:text-4xl md:text-7xl lg:text-8xl"
           }`}>
             {t(slides[current].subtitleKey)}
           </h1>
           <h1 className={`font-black leading-[0.95] tracking-tight text-accent ${
-            lang === "en" ? "text-4xl md:text-5xl lg:text-6xl" : "text-5xl md:text-7xl lg:text-8xl"
+            lang === "en"
+              ? "text-2xl sm:text-3xl md:text-5xl lg:text-6xl"
+              : "text-3xl sm:text-4xl md:text-7xl lg:text-8xl"
           }`}>
             {t(slides[current].titleKey)}
           </h1>
-          <div className="flex gap-4 mt-8">
-            <Link href="/latest" className="btn-primary">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-8">
+            <Link href="/latest" className="btn-primary text-center">
               {t("hero.learnMore")}
             </Link>
-            <a href="mailto:ecn2studio@gmail.com" className="btn-outline">
+            <a href="mailto:ecn2studio@gmail.com" className="btn-outline text-center">
               {t("hero.contactUs")}
             </a>
           </div>
@@ -151,15 +155,15 @@ export default function HeroCarousel() {
       </div>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-3 z-10">
+      <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-2 sm:gap-3 z-10">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goTo(index)}
             className={`transition-all duration-500 rounded-full ${
               index === current
-                ? "w-10 h-2 bg-accent"
-                : "w-2 h-2 bg-white/30 hover:bg-white/60"
+                ? "w-8 sm:w-10 h-1.5 sm:h-2 bg-accent"
+                : "w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white/30 hover:bg-white/60"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -167,12 +171,12 @@ export default function HeroCarousel() {
       </div>
 
       {/* Slide Counter */}
-      <div className="absolute bottom-10 right-8 md:right-20 text-white/60 font-mono z-10">
-        <span className="text-accent font-bold text-2xl">
+      <div className="absolute bottom-6 sm:bottom-10 right-6 sm:right-8 md:right-20 text-white/60 font-mono z-10">
+        <span className="text-accent font-bold text-lg sm:text-2xl">
           {String(current + 1).padStart(2, "0")}
         </span>
-        <span className="mx-2">/</span>
-        <span>{String(slides.length).padStart(2, "0")}</span>
+        <span className="mx-1 sm:mx-2">/</span>
+        <span className="text-sm sm:text-base">{String(slides.length).padStart(2, "0")}</span>
       </div>
     </section>
   );

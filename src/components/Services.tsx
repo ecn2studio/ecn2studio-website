@@ -135,7 +135,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
   return (
     <div
       ref={ref}
-      className={`group relative bg-dark-800 border border-dark-600 rounded-lg p-8 md:p-10 
+      className={`group relative bg-dark-800 border border-dark-600 rounded-lg p-6 sm:p-8 md:p-10 
                   hover:border-accent/30 hover:bg-dark-700 transition-all duration-500
                   ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
       style={{ transitionDelay: `${index * 100}ms` }}
@@ -167,10 +167,10 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
 
 export default function Services() {
   return (
-    <section id="services" className="pb-24 md:pb-32 bg-dark-900">
+    <section id="services" className="pb-16 sm:pb-24 md:pb-32 bg-dark-900">
       <div className="section-padding">
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {services.map((service, index) => (
             <ServiceCard key={service.id} service={service} index={index} />
           ))}

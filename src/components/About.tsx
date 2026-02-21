@@ -65,16 +65,16 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="pb-24 md:pb-32 bg-dark-900 overflow-hidden">
+    <section id="about" className="pb-16 sm:pb-24 md:pb-32 bg-dark-900 overflow-hidden">
       <div ref={ref} className="section-padding">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-24 items-center">
           {/* Left - Text */}
           <div
             className={`transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
             }`}
           >
-            <div className="space-y-6 text-gray-300 leading-relaxed text-lg">
+            <div className="space-y-4 sm:space-y-6 text-gray-300 leading-relaxed text-base sm:text-lg">
               <p>{t("about.p1")}</p>
               <p>{t("about.p2")}</p>
               <p>{t("about.p3")}</p>
@@ -87,11 +87,11 @@ export default function About() {
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
             }`}
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {coreValues.map((value, index) => (
                 <div
                   key={index}
-                  className="group bg-dark-800 border border-dark-600 rounded-lg p-6
+                  className="group bg-dark-800 border border-dark-600 rounded-lg p-5 sm:p-6
                              hover:border-accent/30 hover:bg-dark-700 transition-all duration-500 relative overflow-hidden"
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
