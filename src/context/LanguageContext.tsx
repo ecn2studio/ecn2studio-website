@@ -170,7 +170,7 @@ const translations: Record<Lang, Record<string, string>> = {
     "project38.category": "Netflix 原創影集",
     "project38.services": "後期檔案管理 / 後期影像全流程 / Netflix IMF 封包製作",
     "project39.title": "《深度安靜》",
-    "project39.category": "參與製作",
+    "project39.category": "院線電影",
     "project39.services": "現場檔案管理 / 影音同步",
 
     // Services
@@ -302,7 +302,7 @@ const translations: Record<Lang, Record<string, string>> = {
     "slide6.title": "Haunted House Secrets",
     "slide6.subtitle": "Disney+",
     "slide6.category": "On-Set Data Mgmt / Full Post Pipeline",
-    "slide39.title": "Deep Quiet",
+    "slide39.title": "DEEP QUITE ROOM",
     "slide39.subtitle": "Theatrical Film",
     "slide39.category": "On-Set Data Mgmt / A/V Sync",
 
@@ -426,8 +426,8 @@ const translations: Record<Lang, Record<string, string>> = {
     "project38.title": "Copycat Killer",
     "project38.category": "Netflix Original Series",
     "project38.services": "Post-Production Data Mgmt / Full Post Pipeline / Netflix IMF Packaging",
-    "project39.title": "Deep Quiet",
-    "project39.category": "Production Services",
+    "project39.title": "DEEP QUITE ROOM",
+    "project39.category": "Theatrical Film",
     "project39.services": "On-Set Data Mgmt / A/V Sync",
 
     // Services
