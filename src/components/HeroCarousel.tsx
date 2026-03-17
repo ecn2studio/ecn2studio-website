@@ -22,6 +22,13 @@ const slides: Slide[] = [
     image: "/images/乩身幻燈片.jpeg",
   },
   {
+    id: 40,
+    titleKey: "slide40.title",
+    subtitleKey: "slide40.subtitle",
+    categoryKey: "slide40.category",
+    image: "/images/深度安靜幻燈片.jpg",
+  },
+  {
     id: 1,
     titleKey: "slide1.title",
     subtitleKey: "slide1.subtitle",

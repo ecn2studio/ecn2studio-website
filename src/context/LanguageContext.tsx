@@ -48,6 +48,9 @@ const translations: Record<Lang, Record<string, string>> = {
     "slide39.title": "《乩身》",
     "slide39.subtitle": "Netflix 原創影集",
     "slide39.category": "現場檔案管理 / HDR 後期影像全流程 / Netflix HDR IMF 封包製作",
+    "slide40.title": "《深度安靜》",
+    "slide40.subtitle": "院線電影",
+    "slide40.category": "現場檔案管理 / 影音同步",
 
     // Latest Section
 "latest.sectionLabel": "Latest Release",
@@ -172,6 +175,9 @@ const translations: Record<Lang, Record<string, string>> = {
     "project39.title": "《乩身》",
     "project39.category": "Netflix 原創影集",
     "project39.services": "現場檔案管理 / HDR 後期影像全流程 / Netflix HDR IMF 封包製作",
+    "project40.title": "《深度安靜》",
+    "project40.category": "院線電影",
+    "project40.services": "現場檔案管理 / 影音同步",
 
     // Services
     "service1.title": "現場檔案管理",
@@ -305,6 +311,9 @@ const translations: Record<Lang, Record<string, string>> = {
     "slide39.title": "Agent From Above",
     "slide39.subtitle": "Netflix Original Series",
     "slide39.category": "On-Set Data Mgmt / HDR Full Post Pipeline / Netflix HDR IMF Packaging",
+    "slide40.title": "DEEP QUITE ROOM",
+    "slide40.subtitle": "Theatrical Film",
+    "slide40.category": "On-Set Data Mgmt / A/V Sync",
 
     // Latest Section
     "latest.sectionLabel": "Latest Release",
@@ -429,6 +438,9 @@ const translations: Record<Lang, Record<string, string>> = {
     "project39.title": "Agent From Above",
     "project39.category": "Netflix Original Series",
     "project39.services": "On-Set Data Mgmt / HDR Full Post Pipeline / Netflix HDR IMF Packaging",
+    "project40.title": "DEEP QUITE ROOM",
+    "project40.category": "Theatrical Film",
+    "project40.services": "On-Set Data Mgmt / A/V Sync",
 
     // Services
     "service1.title": "On-Set Data Management",
