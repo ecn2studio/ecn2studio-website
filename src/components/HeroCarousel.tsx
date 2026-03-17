@@ -49,13 +49,6 @@ const slides: Slide[] = [
     categoryKey: "slide4.category",
     image: "/images/slide4.jpg",
   },
-  {
-    id: 6,
-    titleKey: "slide6.title",
-    subtitleKey: "slide6.subtitle",
-    categoryKey: "slide6.category",
-    image: "/images/凶宅專賣店劇照.jpg",
-  },
 ];
 
 export default function HeroCarousel() {
