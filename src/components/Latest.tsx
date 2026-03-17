@@ -21,7 +21,7 @@ const projects: Project[] = [
     categoryKey: "project39.category",
     servicesKey: "project39.services",
     year: "2026",
-    image: "/images/深度安靜海報.jpg",
+    image: "/images/乩身海報.jpg",
   },
   {
     id: 1,

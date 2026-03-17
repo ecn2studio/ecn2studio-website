@@ -1,57 +1,17 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useLanguage } from "@/context/LanguageContext";
 
-const coreValues = [
-  {
-    titleKey: "about.value1.title",
-    descKey: "about.value1.desc",
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-        <circle cx="24" cy="24" r="18" stroke="currentColor" strokeWidth="2" />
-        <path d="M16 24l5 5 11-11" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
-  {
-    titleKey: "about.value2.title",
-    descKey: "about.value2.desc",
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-        <circle cx="18" cy="24" r="10" stroke="currentColor" strokeWidth="2" opacity="0.7" />
-        <circle cx="30" cy="24" r="10" stroke="currentColor" strokeWidth="2" opacity="0.7" />
-        <circle cx="24" cy="18" r="10" stroke="currentColor" strokeWidth="2" opacity="0.7" />
-      </svg>
-    ),
-  },
-  {
-    titleKey: "about.value3.title",
-    descKey: "about.value3.desc",
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-        <path d="M8 14h8v20H8V14zM20 10h8v28h-8V10zM32 18h8v16h-8V18z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
-        <path d="M12 24h12M28 26h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 2" />
-      </svg>
-    ),
-  },
-  {
-    titleKey: "about.value4.title",
-    descKey: "about.value4.desc",
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-        <path d="M24 6v8M24 34v8M6 24h8M34 24h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <circle cx="24" cy="24" r="8" stroke="currentColor" strokeWidth="2" />
-        <path d="M11 11l5 5M32 32l5 5M11 37l5-5M32 16l5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    ),
-  },
+const stats = [
+  { number: "200+", label: "完成專案" },
+  { number: "15+", label: "年業界經驗" },
+  { number: "50+", label: "合作導演" },
+  { number: "30+", label: "國際影展" },
 ];
 
 export default function About() {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -65,53 +25,49 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="pb-16 sm:pb-24 md:pb-32 bg-dark-900 overflow-hidden">
+    <section id="about" className="pb-24 md:pb-32 bg-dark-900 overflow-hidden">
       <div ref={ref} className="section-padding">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left - Text */}
           <div
             className={`transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
             }`}
           >
-            <div className="space-y-4 sm:space-y-6 text-gray-300 leading-relaxed text-base sm:text-lg">
-              <p>{t("about.p1")}</p>
-              <p>{t("about.p2")}</p>
-              <p>{t("about.p3")}</p>
+            <div className="space-y-6 text-gray-300 leading-relaxed text-lg">
+              <p>
+                ECN2 STUDIO 是一支專注於影視後期製作的專業團隊，從片場到銀幕，我們陪伴每一部作品走過最關鍵的旅程。
+              </p>
+              <p>
+                我們深信，卓越的技術是講好故事的基石。無論是 Netflix 原創影集的嚴格規格要求，
+                還是院線電影的 DCP 母帶製作，我們都以最高標準為每一個專案把關。
+              </p>
+              <p>
+                從現場 DIT 到最終交付，ECN2 STUDIO 提供一站式的後期技術解決方案，
+                讓創作者專注於創作，我們負責讓技術完美落地。
+              </p>
             </div>
           </div>
 
-          {/* Right - Core Values */}
+          {/* Right - Stats */}
           <div
             className={`transition-all duration-1000 delay-300 ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
             }`}
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-              {coreValues.map((value, index) => (
+            <div className="grid grid-cols-2 gap-6">
+              {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className="group bg-dark-800 border border-dark-600 rounded-lg p-5 sm:p-6
-                             hover:border-accent/30 hover:bg-dark-700 transition-all duration-500 relative overflow-hidden"
-                  style={{ transitionDelay: `${index * 100}ms` }}
+                  className="bg-dark-800 border border-dark-600 rounded-lg p-8 text-center
+                             hover:border-accent/30 transition-all duration-500"
                 >
-                  {/* Icon */}
-                  <div className="text-accent mb-4 group-hover:scale-110 transition-transform duration-500">
-                    {value.icon}
+                  <div className="text-accent text-4xl md:text-5xl font-black mb-2">
+                    {stat.number}
                   </div>
-
-                  {/* Title */}
-                  <h4 className="text-lg font-bold text-white mb-2">
-                    {t(value.titleKey)}
-                  </h4>
-
-                  {/* Description */}
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    {t(value.descKey)}
-                  </p>
-
-                  {/* Bottom accent line */}
-                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-500" />
+                  <div className="text-gray-400 text-sm uppercase tracking-widest">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </div>

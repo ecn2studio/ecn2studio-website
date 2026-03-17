@@ -19,7 +19,7 @@ const slides: Slide[] = [
     titleKey: "slide39.title",
     subtitleKey: "slide39.subtitle",
     categoryKey: "slide39.category",
-    image: "/images/深度安靜幻燈片.jpg",
+    image: "/images/乩身幻燈片.jpeg",
   },
   {
     id: 1,
