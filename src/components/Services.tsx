@@ -1,22 +1,22 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface Service {
   id: number;
-  title: string;
-  titleEn: string;
-  description: string;
+  titleKey: string;
+  titleEnKey: string;
+  descKey: string;
   icon: React.ReactNode;
 }
 
 const services: Service[] = [
   {
     id: 1,
-    title: "現場檔案管理",
-    titleEn: "On-Set Data Management",
-    description:
-      "專業 DIT 團隊駐場服務，即時備份、校色監看、檔案歸檔，確保每一格影像安全無虞。",
+    titleKey: "service1.title",
+    titleEnKey: "service1.titleEn",
+    descKey: "service1.desc",
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
         <rect x="6" y="10" width="36" height="28" rx="3" stroke="currentColor" strokeWidth="2" />
@@ -30,10 +30,9 @@ const services: Service[] = [
   },
   {
     id: 2,
-    title: "後期檔案管理",
-    titleEn: "Post-Production Data Management",
-    description:
-      "從拍攝素材到最終交付，完整的檔案流程管理，版本控管與跨部門協作無縫銜接。",
+    titleKey: "service2.title",
+    titleEnKey: "service2.titleEn",
+    descKey: "service2.desc",
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
         <path d="M8 12h12l4 4h16v20H8V12z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
@@ -43,10 +42,9 @@ const services: Service[] = [
   },
   {
     id: 3,
-    title: "影音同步",
-    titleEn: "Audio-Video Synchronization",
-    description:
-      "高精度影音同步處理，支援多機多軌作業，從現場收音到混音的完美對接。",
+    titleKey: "service3.title",
+    titleEnKey: "service3.titleEn",
+    descKey: "service3.desc",
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
         <rect x="8" y="14" width="12" height="20" rx="2" stroke="currentColor" strokeWidth="2" />
@@ -57,10 +55,9 @@ const services: Service[] = [
   },
   {
     id: 4,
-    title: "套片",
-    titleEn: "Online Editing / Conforming",
-    description:
-      "精確的套片作業，確保剪輯版本與原始攝影素材完美對應，呈現最高畫質成品。",
+    titleKey: "service4.title",
+    titleEnKey: "service4.titleEn",
+    descKey: "service4.desc",
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
         <rect x="6" y="12" width="36" height="24" rx="3" stroke="currentColor" strokeWidth="2" />
@@ -75,10 +72,36 @@ const services: Service[] = [
   },
   {
     id: 5,
-    title: "DCP 製作",
-    titleEn: "DCP Mastering",
-    description:
-      "符合 DCI 規格的數位電影包製作，支援 2K/4K、Dolby Atmos，讓作品在大銀幕完美呈現。",
+    titleKey: "service6.title",
+    titleEnKey: "service6.titleEn",
+    descKey: "service6.desc",
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <path d="M12 8v32l6-16 6 16V8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M28 16h8M28 22h12M28 28h10M28 34h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    id: 6,
+    titleKey: "service7.title",
+    titleEnKey: "service7.titleEn",
+    descKey: "service7.desc",
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <circle cx="16" cy="24" r="10" stroke="currentColor" strokeWidth="2" />
+        <circle cx="32" cy="24" r="10" stroke="currentColor" strokeWidth="2" />
+        <path d="M24 17.4a10 10 0 0 1 0 13.2" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M10 34l4 6M38 34l-4 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M14 20h4M30 20h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    id: 7,
+    titleKey: "service5.title",
+    titleEnKey: "service5.titleEn",
+    descKey: "service5.desc",
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
         <circle cx="24" cy="24" r="16" stroke="currentColor" strokeWidth="2" />
@@ -88,24 +111,12 @@ const services: Service[] = [
       </svg>
     ),
   },
-  {
-    id: 6,
-    title: "Netflix 規格製作",
-    titleEn: "Netflix Specification Delivery",
-    description:
-      "完全符合 Netflix 技術規格的母帶製作與交付，包含 IMF 封裝、HDR 調光、音頻規格認證。",
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-        <path d="M12 8v32l6-16 6 16V8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M28 16h8M28 22h12M28 28h10M28 34h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    ),
-  },
 ];
 
 function ServiceCard({ service, index }: { service: Service; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const { t, lang } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -124,29 +135,25 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
   return (
     <div
       ref={ref}
-      className={`group relative bg-dark-800 border border-dark-600 rounded-lg p-8 md:p-10 
+      className={`group relative bg-dark-800 border border-dark-600 rounded-lg p-6 sm:p-8 md:p-10 
                   hover:border-accent/30 hover:bg-dark-700 transition-all duration-500
                   ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      {/* Number */}
       <span className="absolute top-6 right-6 text-dark-500 text-sm font-mono">
         {String(service.id).padStart(2, "0")}
       </span>
 
-      {/* Icon */}
       <div className="text-accent mb-6">{service.icon}</div>
 
-      {/* Content */}
-      <h3 className="text-xl md:text-2xl font-bold mb-1">{service.title}</h3>
-      <p className="text-xs text-gray-500 uppercase tracking-widest mb-4">
-        {service.titleEn}
-      </p>
-      <p className="text-gray-400 text-sm leading-relaxed">
-        {service.description}
-      </p>
+      <h3 className="text-xl md:text-2xl font-bold mb-1">{t(service.titleKey)}</h3>
+      {lang === "zh" && (
+        <p className="text-xs text-gray-500 uppercase tracking-widest mb-4">
+          {t(service.titleEnKey)}
+        </p>
+      )}
+      <p className="text-gray-400 text-sm leading-relaxed">{t(service.descKey)}</p>
 
-      {/* Bottom accent line */}
       <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-500" />
     </div>
   );
@@ -154,10 +161,9 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
 
 export default function Services() {
   return (
-    <section id="services" className="pb-24 md:pb-32 bg-dark-900">
+    <section id="services" className="pb-16 sm:pb-24 md:pb-32 bg-dark-900">
       <div className="section-padding">
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {services.map((service, index) => (
             <ServiceCard key={service.id} service={service} index={index} />
           ))}
