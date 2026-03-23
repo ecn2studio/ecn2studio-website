@@ -34,8 +34,8 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-dark-900/95 backdrop-blur-md shadow-lg py-3"
-          : "bg-transparent py-6"
+          ? "bg-dark-900/95 backdrop-blur-md shadow-lg py-2.5 sm:py-3"
+          : "bg-transparent py-4 sm:py-6"
       }`}
     >
       <div className="section-padding flex items-center justify-between">
@@ -96,7 +96,7 @@ export default function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden flex flex-col gap-1.5 z-50"
+          className="md:hidden flex flex-col gap-1.5 z-50 p-1"
           aria-label="Toggle menu"
         >
           <span
@@ -118,7 +118,7 @@ export default function Header() {
 
         {/* Mobile Menu */}
         <div
-          className={`fixed inset-0 bg-dark-900/98 backdrop-blur-lg flex flex-col items-center justify-center gap-8 transition-all duration-500 md:hidden ${
+          className={`fixed inset-0 bg-dark-900/98 backdrop-blur-lg flex flex-col items-center justify-center gap-6 sm:gap-8 transition-all duration-500 md:hidden ${
             menuOpen
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
@@ -128,7 +128,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-2xl font-bold uppercase tracking-widest transition-colors duration-300 ${
+              className={`text-xl sm:text-2xl font-bold uppercase tracking-widest transition-colors duration-300 ${
                 pathname === link.href
                   ? "text-accent"
                   : "text-gray-300 hover:text-accent"
