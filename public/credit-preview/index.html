@@ -254,13 +254,12 @@ const SPEED_DUR = [0, 120, 90, 60, 40, 25];
 const SPEED_LABEL = ['', '很慢', '慢', '普通', '快', '很快'];
 
 // ── 啟動 ──
+// Proxy 網址：由你的 Next.js 伺服器轉發，避免 Chrome 攔截
+const PROXY_URL = 'https://www.ecn2studio.com/api/credits';
+
 window.addEventListener('load', () => {
-  const savedUrl = localStorage.getItem(STORAGE_KEY);
-  if (savedUrl) {
-    fetchData(savedUrl);
-  } else {
-    showErrorScreen();
-  }
+  // 直接用 proxy，不需要手動輸入網址
+  fetchData(PROXY_URL);
 });
 
 function showErrorScreen() {
@@ -294,38 +293,24 @@ function reloadData() {
   fetchData(url);
 }
 
-// ── 從 Apps Script 抓資料（JSONP 方式，可繞過 CORS）──
+// ── 從 Proxy 抓資料（走自己的伺服器，不會被 Chrome 攔截）──
 function fetchData(url) {
-  // 清除上一次的 JSONP script tag
-  const old = document.getElementById('jsonp-script');
-  if (old) old.remove();
-
-  // 設定 timeout
-  const timer = setTimeout(() => {
-    document.getElementById('loading').style.display = 'none';
-    alert('載入逾時，請確認：\n1. Apps Script 已部署為 Web App\n2. 存取權限設為「知道連結的任何人」\n3. 網址正確');
-    showErrorScreen();
-  }, 15000);
-
-  // 全域 callback，Apps Script 會呼叫這個函式
-  window.__ecn2callback = function(data) {
-    clearTimeout(timer);
-    RAW = data;
-    initUI();
-  };
-
-  // 建立 script tag，帶上 callback 參數
-  const script = document.createElement('script');
-  script.id = 'jsonp-script';
-  const sep = url.includes('?') ? '&' : '?';
-  script.src = url + sep + 'callback=__ecn2callback';
-  script.onerror = () => {
-    clearTimeout(timer);
-    document.getElementById('loading').style.display = 'none';
-    alert('無法載入資料，請確認網址是否正確。');
-    showErrorScreen();
-  };
-  document.head.appendChild(script);
+  fetch(url)
+    .then(r => {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(data => {
+      RAW = data;
+      initUI();
+    })
+    .catch(err => {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('error-screen').style.display = 'flex';
+      document.getElementById('error-screen').querySelector('h2').textContent = '載入失敗';
+      document.getElementById('error-screen').querySelector('p').textContent =
+        '無法取得片尾資料：' + err.message + '\n請確認 API route 是否正常運作。';
+    });
 }
 
 // ── 初始化 UI ──
