@@ -213,6 +213,9 @@ const translations: Record<Lang, Record<string, string>> = {
     "service7.title": "SDR 與 HDR 調色製作",
     "service7.titleEn": "SDR & HDR Color Grading",
     "service7.desc": "專業的 SDR / HDR 雙版本調色製作，精準色彩管理與 ACES 工作流程，確保從 Rec.709 到 Rec.2020 / PQ / HLG 各種規格的完美呈現，滿足院線、串流平台與電視播出的不同需求。",
+    "service8.title": "LTO-8 磁帶錄製服務",
+    "service8.titleEn": "LTO-8 Tape Archiving",
+    "service8.desc": "提供 LTO-8 磁帶長期歸檔備份，將專案拍攝原始素材與完成播帶寫入磁帶並完成校驗驗證；建立清晰標籤與目錄紀錄，確保資料長久保存、日後調閱與交接順暢無虞。",
 
     // Services Page
     "servicesPage.label": "What We Do",
@@ -488,6 +491,9 @@ const translations: Record<Lang, Record<string, string>> = {
     "service7.title": "SDR & HDR Color Grading",
     "service7.titleEn": "SDR & HDR Color Grading",
     "service7.desc": "Professional dual-version SDR/HDR color grading with precise color management and ACES workflow, ensuring flawless delivery across Rec.709, Rec.2020, PQ, and HLG specifications for theatrical, streaming, and broadcast requirements.",
+    "service8.title": "LTO-8 Tape Archiving",
+    "service8.titleEn": "LTO-8 Tape Archiving",
+    "service8.desc": "Long-term LTO-8 tape backup for original camera footage and finished masters—with pre-write checks, labeling, cataloging, and restore verification for secure storage and smooth retrieval and handoff.",
 
     // Services Page
     "servicesPage.label": "What We Do",

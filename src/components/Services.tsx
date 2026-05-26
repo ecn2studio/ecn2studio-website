@@ -111,6 +111,21 @@ const services: Service[] = [
       </svg>
     ),
   },
+  {
+    id: 8,
+    titleKey: "service8.title",
+    titleEnKey: "service8.titleEn",
+    descKey: "service8.desc",
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <rect x="10" y="14" width="28" height="20" rx="3" stroke="currentColor" strokeWidth="2" />
+        <circle cx="24" cy="24" r="6" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="24" cy="24" r="2" fill="currentColor" />
+        <path d="M14 20h4M30 20h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M10 34h28" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
+  },
 ];
 
 function ServiceCard({ service, index }: { service: Service; index: number }) {
