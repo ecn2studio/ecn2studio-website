@@ -51,6 +51,12 @@ const translations: Record<Lang, Record<string, string>> = {
     "slide40.title": "《深度安靜》",
     "slide40.subtitle": "院線電影",
     "slide40.category": "現場檔案管理 / 影音同步",
+    "slide41.title": "《欠婚》",
+    "slide41.subtitle": "Netflix 原創影集 / 公共電視 PTS 影集",
+    "slide41.category": "後期檔案管理 / 後期影像全流程",
+    "slide42.title": "《失樂園》",
+    "slide42.subtitle": "院線電影",
+    "slide42.category": "後期檔案管理 / 後期影像全流程",
 
     // Latest Section
 "latest.sectionLabel": "Latest Release",
@@ -178,6 +184,12 @@ const translations: Record<Lang, Record<string, string>> = {
     "project40.title": "《深度安靜》",
     "project40.category": "院線電影",
     "project40.services": "現場檔案管理 / 影音同步",
+    "project41.title": "《欠婚》",
+    "project41.category": "Netflix 原創影集 / 公共電視 PTS 影集",
+    "project41.services": "後期檔案管理 / 後期影像全流程",
+    "project42.title": "《失樂園》",
+    "project42.category": "院線電影",
+    "project42.services": "後期檔案管理 / 後期影像全流程",
 
     // Services
     "service1.title": "現場檔案管理",
@@ -314,6 +326,12 @@ const translations: Record<Lang, Record<string, string>> = {
     "slide40.title": "DEEP QUITE ROOM",
     "slide40.subtitle": "Theatrical Film",
     "slide40.category": "On-Set Data Mgmt / A/V Sync",
+    "slide41.title": "Dog Man",
+    "slide41.subtitle": "Netflix Original Series / PTS Series",
+    "slide41.category": "Post-Production Data Mgmt / Full Post Pipeline",
+    "slide42.title": "That Burning House",
+    "slide42.subtitle": "Theatrical Film",
+    "slide42.category": "Post-Production Data Mgmt / Full Post Pipeline",
 
     // Latest Section
     "latest.sectionLabel": "Latest Release",
@@ -441,6 +459,12 @@ const translations: Record<Lang, Record<string, string>> = {
     "project40.title": "DEEP QUITE ROOM",
     "project40.category": "Theatrical Film",
     "project40.services": "On-Set Data Mgmt / A/V Sync",
+    "project41.title": "Dog Man",
+    "project41.category": "Netflix Original Series / PTS Series",
+    "project41.services": "Post-Production Data Mgmt / Full Post Pipeline",
+    "project42.title": "That Burning House",
+    "project42.category": "Theatrical Film",
+    "project42.services": "Post-Production Data Mgmt / Full Post Pipeline",
 
     // Services
     "service1.title": "On-Set Data Management",
