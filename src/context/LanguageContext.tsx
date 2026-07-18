@@ -57,6 +57,9 @@ const translations: Record<Lang, Record<string, string>> = {
     "slide42.title": "《失樂園》",
     "slide42.subtitle": "院線電影",
     "slide42.category": "後期檔案管理 / 後期影像全流程",
+    "slide43.title": "《來！金來號》",
+    "slide43.subtitle": "HBO MAX 原創影集",
+    "slide43.category": "現場檔案管理 / 後期影像全流程",
 
     // Latest Section
 "latest.sectionLabel": "Latest Release",
@@ -190,6 +193,9 @@ const translations: Record<Lang, Record<string, string>> = {
     "project42.title": "《失樂園》",
     "project42.category": "院線電影",
     "project42.services": "後期檔案管理 / 後期影像全流程",
+    "project43.title": "《來！金來號》",
+    "project43.category": "HBO MAX 原創影集",
+    "project43.services": "現場檔案管理 / 後期影像全流程",
 
     // Services
     "service1.title": "現場檔案管理",
@@ -335,6 +341,9 @@ const translations: Record<Lang, Record<string, string>> = {
     "slide42.title": "That Burning House",
     "slide42.subtitle": "Theatrical Film",
     "slide42.category": "Post-Production Data Mgmt / Full Post Pipeline",
+    "slide43.title": "FIRED UP!",
+    "slide43.subtitle": "HBO MAX Original Series",
+    "slide43.category": "On-Set Data Mgmt / Full Post Pipeline",
 
     // Latest Section
     "latest.sectionLabel": "Latest Release",
@@ -468,6 +477,9 @@ const translations: Record<Lang, Record<string, string>> = {
     "project42.title": "That Burning House",
     "project42.category": "Theatrical Film",
     "project42.services": "Post-Production Data Mgmt / Full Post Pipeline",
+    "project43.title": "FIRED UP!",
+    "project43.category": "HBO MAX Original Series",
+    "project43.services": "On-Set Data Mgmt / Full Post Pipeline",
 
     // Services
     "service1.title": "On-Set Data Management",
