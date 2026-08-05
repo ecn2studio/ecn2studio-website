@@ -15,6 +15,13 @@ interface Slide {
 
 const slides: Slide[] = [
   {
+    id: 44,
+    titleKey: "slide44.title",
+    subtitleKey: "slide44.subtitle",
+    categoryKey: "slide44.category",
+    image: "/images/接招吧！製作人幻燈片.jpg",
+  },
+  {
     id: 43,
     titleKey: "slide43.title",
     subtitleKey: "slide43.subtitle",
@@ -48,13 +55,6 @@ const slides: Slide[] = [
     subtitleKey: "slide40.subtitle",
     categoryKey: "slide40.category",
     image: "/images/深度安靜幻燈片.jpg",
-  },
-  {
-    id: 1,
-    titleKey: "slide1.title",
-    subtitleKey: "slide1.subtitle",
-    categoryKey: "slide1.category",
-    image: "/images/slide1.jpg",
   },
 ];
 
