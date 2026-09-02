@@ -16,6 +16,14 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: 45,
+    titleKey: "project45.title",
+    categoryKey: "project45.category",
+    servicesKey: "project45.services",
+    year: "2026",
+    image: "/images/黑白清道夫海報.jpg",
+  },
+  {
     id: 44,
     titleKey: "project44.title",
     categoryKey: "project44.category",

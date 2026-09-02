@@ -63,6 +63,9 @@ const translations: Record<Lang, Record<string, string>> = {
     "slide44.title": "《接招吧！製作人》",
     "slide44.subtitle": "HBO MAX 原創影集",
     "slide44.category": "後期檔案管理 / 後期影像全流程",
+    "slide45.title": "《黑白清道夫》",
+    "slide45.subtitle": "Netflix 原創影集",
+    "slide45.category": "後期檔案管理",
 
     // Latest Section
 "latest.sectionLabel": "Latest Release",
@@ -202,6 +205,9 @@ const translations: Record<Lang, Record<string, string>> = {
     "project44.title": "《接招吧！製作人》",
     "project44.category": "HBO MAX 原創影集",
     "project44.services": "後期檔案管理 / 後期影像全流程",
+    "project45.title": "《黑白清道夫》",
+    "project45.category": "Netflix 原創影集",
+    "project45.services": "後期檔案管理",
 
     // Services
     "service1.title": "現場檔案管理",
@@ -353,6 +359,9 @@ const translations: Record<Lang, Record<string, string>> = {
     "slide44.title": "The Producer",
     "slide44.subtitle": "HBO MAX Original Series",
     "slide44.category": "Post-Production Data Mgmt / Full Post Pipeline",
+    "slide45.title": "The Fixers",
+    "slide45.subtitle": "Netflix Original Series",
+    "slide45.category": "Post-Production Data Management",
 
     // Latest Section
     "latest.sectionLabel": "Latest Release",
@@ -492,6 +501,9 @@ const translations: Record<Lang, Record<string, string>> = {
     "project44.title": "The Producer",
     "project44.category": "HBO MAX Original Series",
     "project44.services": "Post-Production Data Mgmt / Full Post Pipeline",
+    "project45.title": "The Fixers",
+    "project45.category": "Netflix Original Series",
+    "project45.services": "Post-Production Data Management",
 
     // Services
     "service1.title": "On-Set Data Management",
