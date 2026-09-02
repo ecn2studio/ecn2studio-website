@@ -65,7 +65,7 @@ const translations: Record<Lang, Record<string, string>> = {
     "slide44.category": "後期檔案管理 / 後期影像全流程",
     "slide45.title": "《黑白清道夫》",
     "slide45.subtitle": "Netflix 原創影集",
-    "slide45.category": "後期檔案管理",
+    "slide45.category": "後期檔案管理 / 影音同步工程",
 
     // Latest Section
 "latest.sectionLabel": "Latest Release",
@@ -207,7 +207,7 @@ const translations: Record<Lang, Record<string, string>> = {
     "project44.services": "後期檔案管理 / 後期影像全流程",
     "project45.title": "《黑白清道夫》",
     "project45.category": "Netflix 原創影集",
-    "project45.services": "後期檔案管理",
+    "project45.services": "後期檔案管理 / 影音同步工程",
 
     // Services
     "service1.title": "現場檔案管理",
@@ -361,7 +361,7 @@ const translations: Record<Lang, Record<string, string>> = {
     "slide44.category": "Post-Production Data Mgmt / Full Post Pipeline",
     "slide45.title": "The Fixers",
     "slide45.subtitle": "Netflix Original Series",
-    "slide45.category": "Post-Production Data Management",
+    "slide45.category": "Post-Production Data Mgmt / A/V Sync",
 
     // Latest Section
     "latest.sectionLabel": "Latest Release",
@@ -503,7 +503,7 @@ const translations: Record<Lang, Record<string, string>> = {
     "project44.services": "Post-Production Data Mgmt / Full Post Pipeline",
     "project45.title": "The Fixers",
     "project45.category": "Netflix Original Series",
-    "project45.services": "Post-Production Data Management",
+    "project45.services": "Post-Production Data Mgmt / A/V Sync",
 
     // Services
     "service1.title": "On-Set Data Management",
